@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using xSignalRng6.Hubs;
+using xSignalRng6.Models;
 
 namespace xSignalRng6
 {
@@ -30,6 +31,7 @@ namespace xSignalRng6
             });
 
             services.AddSignalR();
+            services.AddSingleton<StockTicker>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +47,7 @@ namespace xSignalRng6
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
@@ -60,6 +62,8 @@ namespace xSignalRng6
             app.UseSignalR(routes =>
             {
                 routes.MapHub<EchoHub>("/hubs/echo");
+                routes.MapHub<StockTickerHub>("/stock");
+                routes.MapHub<DynamicMessageHub>("/dynamichub");
             });
 
             app.UseSpa(spa =>

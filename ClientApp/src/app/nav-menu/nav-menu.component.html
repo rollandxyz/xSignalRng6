@@ -18,8 +18,8 @@
                     </a>
                 </li>
                 <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/counter"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-education'></span> Counter
+                    <a [routerLink]='["/stock-data"]' (click)='collapse()'>
+                      <span class='glyphicon glyphicon-th-list'></span> Stock Data
                     </a>
                 </li>
                 <li [routerLinkActive]='["link-active"]'>
@@ -27,6 +27,11 @@
                         <span class='glyphicon glyphicon-th-list'></span> Fetch data
                     </a>
                 </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/dynamic"]' (click)='collapse()'>
+                      <span class='glyphicon glyphicon-th-list'></span> Dynamic Hub
+                    </a>
+                  </li>
             </ul>
         </div>
     </div>
